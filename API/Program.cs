@@ -1,15 +1,22 @@
+using System.Reflection;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Authentication.JwtBearer;
 using API.Middleware;
 using Application;
 using Domain;
-using Microsoft.AspNetCore.Identity;
-using Microsoft.EntityFrameworkCore;
 using Persistence;
-using System.Reflection;
+using Security;
+using Microsoft.IdentityModel.Tokens;
+using System.Text;
+using Microsoft.OpenApi.Models;
+using Swashbuckle.AspNetCore.SwaggerGen;
 
 var builder = WebApplication.CreateBuilder(args);
 
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
+builder.Services.AddCustomJwtGenerator(builder.Configuration);
 builder.Services.AddControllers();
 
 builder.Services.AddIdentity<AppUser, IdentityRole>(config =>
@@ -22,11 +29,67 @@ builder.Services.AddIdentity<AppUser, IdentityRole>(config =>
     .AddEntityFrameworkStores<ApplicationContext>()
     .AddSignInManager<SignInManager<AppUser>>();
 
+builder.Services.ConfigureApplicationCookie(options =>
+{
+    options.Events.OnRedirectToLogin = context =>
+    {
+        context.Response.StatusCode = 401;
+        return Task.CompletedTask;
+    };
+});
+
+builder.Services.AddAuthentication(config =>
+    {
+        config.DefaultAuthenticateScheme = JwtBearerDefaults.AuthenticationScheme;
+        config.DefaultChallengeScheme = JwtBearerDefaults.AuthenticationScheme;
+    })
+    .AddJwtBearer(options =>
+    {
+        options.TokenValidationParameters = new TokenValidationParameters
+        {
+            ValidateIssuerSigningKey = true,
+            IssuerSigningKey = new SymmetricSecurityKey(Encoding.UTF8.GetBytes(builder.Configuration["SecretKey"]!)),
+            ValidateAudience = false,
+            ValidateIssuer = false,
+        };
+    });
+
 builder.Services.AddSwaggerGen(config =>
 {
     var xmlFile = $"{Assembly.GetExecutingAssembly().GetName().Name}.xml";
     var xmlPath = Path.Combine(AppContext.BaseDirectory, xmlFile);
     config.IncludeXmlComments(xmlPath);
+
+    config.AddSecurityDefinition("AuthToken",
+    new OpenApiSecurityScheme
+    {
+        In = ParameterLocation.Header,
+        Type = SecuritySchemeType.Http,
+        BearerFormat = "JWT",
+        Scheme = "bearer",
+        Name = "Authorization",
+        Description = "Authorization token"
+    });
+
+    config.AddSecurityRequirement(new OpenApiSecurityRequirement
+    {
+        {
+            new OpenApiSecurityScheme
+            {
+                Reference = new OpenApiReference
+                {
+                    Type = ReferenceType.SecurityScheme,
+                    Id = "AuthToken"
+                }
+            },
+            new string[] { }
+        }
+    });
+
+    config.CustomOperationIds(apiDescription =>
+                apiDescription.TryGetMethodInfo(out MethodInfo methodInfo)
+                    ? methodInfo.Name
+                    : null);
 });
 
 var app = builder.Build();

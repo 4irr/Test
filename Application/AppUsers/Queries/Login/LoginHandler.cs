@@ -1,4 +1,5 @@
 ﻿using Application.Common.Exceptions;
+using Application.Interfaces;
 using Domain;
 using MediatR;
 using Microsoft.AspNetCore.Identity;
@@ -16,11 +17,13 @@ namespace Application.AppUsers.Queries.Login
         private readonly UserManager<AppUser>? _userManager;
 
         private readonly SignInManager<AppUser>? _signInManager;
+        private readonly IJwtGenerator _jwtGenerator;
 
-        public LoginHandler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager)
+        public LoginHandler(UserManager<AppUser> userManager, SignInManager<AppUser> signInManager, IJwtGenerator jwtGenerator)
         {
             _userManager = userManager;
             _signInManager = signInManager;
+            _jwtGenerator = jwtGenerator;
         }
 
         public async Task<AppUser> Handle(LoginQuery request, CancellationToken cancellationToken)
@@ -35,7 +38,7 @@ namespace Application.AppUsers.Queries.Login
 
             if (result.Succeeded)
             {
-                user.Token = "Test Token";
+                user.Token = _jwtGenerator.CreateToken(user);
                 return user;
             }
 
