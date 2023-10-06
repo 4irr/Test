@@ -8,10 +8,22 @@ using Persistence;
 using Security;
 using Microsoft.Extensions.Options;
 using Swashbuckle.AspNetCore.SwaggerGen;
+using Application.Common.Mappings;
+using System.Reflection;
+using Application.Interfaces;
+using System.Text.Json.Serialization;
 
 var builder = WebApplication.CreateBuilder(args);
 
-builder.Services.AddControllers();
+builder.Services.AddAutoMapper(config =>
+{
+    config.AddProfile(new AssemblyMappingProfile(Assembly.GetExecutingAssembly()));
+    config.AddProfile(new AssemblyMappingProfile(typeof(IApplicationContext).Assembly));
+});
+
+builder.Services.AddControllers()
+    .AddJsonOptions(options =>
+        options.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter()));
 builder.Services.AddPersistence(builder.Configuration);
 builder.Services.AddApplication();
 builder.Services.AddCustomJwtGenerator(builder.Configuration);
@@ -21,13 +33,13 @@ builder.Services.AddSwaggerGen();
 
 var app = builder.Build();
 
-app.UseAuthentication();
-app.UseAuthorization();
-
 app.UseCustomExceptionHandler();
 app.UseHttpsRedirection();
 app.UseRouting();
 app.MapControllers();
+
+app.UseAuthentication();
+app.UseAuthorization();
 
 app.UseSwagger();
 app.UseSwaggerUI(config =>
