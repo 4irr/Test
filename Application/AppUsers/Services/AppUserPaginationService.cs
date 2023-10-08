@@ -10,7 +10,7 @@ namespace Application.AppUsers.Services
 {
     public class AppUserPaginationService
     {
-        public static IQueryable<AppUser> DoPagination(IQueryable<AppUser> users, int page)
+        public static IEnumerable<AppUser> DoPagination(IEnumerable<AppUser> users, int page)
         {
             // размер страницы по умолчанию
             int pageSize = 1;

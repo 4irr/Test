@@ -10,6 +10,7 @@ namespace Application.AppUsers.Queries.GetUserList
         public string? DisplayName { get; set; }
         public int? Age { get; set; }
         public string? Email { get; set; }
+        public string? Role { get; set; }
         public int Page { get; set; }
     }
 }

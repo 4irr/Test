@@ -19,10 +19,10 @@ namespace Application.AppUsers.Queries.GetUserList
 
         public async Task<UserListVm> Handle(GetUserListQuery request, CancellationToken cancellationToken)
         {
-            IQueryable<AppUser> users = _userManager.Users.AsQueryable();
+            IEnumerable<AppUser> users = await _userManager.Users.Include(u => u.Roles).ToListAsync();
 
             // фильтрация
-            users = AppUsersFilterService.DoFilter(users, request.Id, request.DisplayName, request.Age, request.Email);
+            users = AppUsersFilterService.DoFilter(users, request.Id, request.DisplayName, request.Age, request.Email, request.Role);
 
             // сортировка
             users = AppUserSortService.DoSort(users, request.SortState);
@@ -30,9 +30,14 @@ namespace Application.AppUsers.Queries.GetUserList
             // пагинация
             users = AppUserPaginationService.DoPagination(users, request.Page);
 
-            var usersQuery = await users
-                .ProjectTo<AppUserDto>(_mapper.ConfigurationProvider)
-                .ToListAsync(cancellationToken);
+            List<AppUserDto>? usersQuery = new();
+
+            foreach(var user in users)
+            {
+                var userDto = _mapper.Map<AppUserDto>(user);
+                userDto.Roles = await _userManager.GetRolesAsync(user);
+                usersQuery.Add(userDto);
+            }
 
             return new UserListVm { Users = usersQuery };
         }

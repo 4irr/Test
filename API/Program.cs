@@ -55,8 +55,9 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<ApplicationContext>();
         var userManager = services.GetRequiredService<UserManager<AppUser>>();
+        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
         context.Database.Migrate();
-        DataSeed.SeedDataAsync(context, userManager).Wait();
+        DataSeed.SeedDataAsync(context, userManager, roleManager).Wait();
     }
     catch (Exception ex)
     {

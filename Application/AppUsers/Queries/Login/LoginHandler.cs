@@ -42,6 +42,7 @@ namespace Application.AppUsers.Queries.Login
             {
                 user.Token = _jwtGenerator.CreateToken(user);
                 var userDto = _mapper.Map<AppUserDto>(user);
+                userDto.Roles = await _userManager.GetRolesAsync(user);
                 return userDto;
             }
 

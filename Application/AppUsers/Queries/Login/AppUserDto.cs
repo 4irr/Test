@@ -1,6 +1,7 @@
 ﻿using Application.Common.Mappings;
 using AutoMapper;
 using Domain;
+using Microsoft.AspNetCore.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -16,6 +17,7 @@ namespace Application.AppUsers.Queries.Login
         public int Age { get; set; }
         public string? Email { get; set; }
         public string? Token { get; set; }
+        public IList<string>? Roles { get; set; }
         public void Mapping(Profile profile)
         {
             profile.CreateMap<AppUser, AppUserDto>()
@@ -28,7 +30,9 @@ namespace Application.AppUsers.Queries.Login
                 .ForMember(dto => dto.Email,
                     opt => opt.MapFrom(user => user.Email))
                 .ForMember(dto => dto.Token,
-                    opt => opt.MapFrom(user => user.Token));
+                    opt => opt.MapFrom(user => user.Token))
+                .ForMember(dto => dto.Roles,
+                    opt => opt.MapFrom(user => user.Roles));
         }
     }
 }

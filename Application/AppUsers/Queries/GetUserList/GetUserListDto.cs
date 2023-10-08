@@ -13,6 +13,7 @@ namespace Application.AppUsers.Queries.GetUserList
         public string? DisplayName { get; set; }
         public int? Age { get; set; }
         public string? Email { get; set; }
+        public string? Role { get; set; }
         [DefaultValue(1)]
         [Range(1, double.MaxValue)]
         public int Page { get; set; } = 1;
@@ -30,6 +31,8 @@ namespace Application.AppUsers.Queries.GetUserList
                     opt => opt.MapFrom(dto => dto.Age))
                 .ForMember(query => query.Email,
                     opt => opt.MapFrom(dto => dto.Email))
+                .ForMember(query => query.Role,
+                    opt => opt.MapFrom(dto => dto.Role))
                 .ForMember(query => query.Page,
                     opt => opt.MapFrom(dto => dto.Page));
 

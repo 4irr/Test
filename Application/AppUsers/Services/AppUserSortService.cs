@@ -10,7 +10,7 @@ namespace Application.AppUsers.Services
 {
     public class AppUserSortService
     {
-        public static IQueryable<AppUser> DoSort(IQueryable<AppUser> users, AppUserSortState sortOrder)
+        public static IEnumerable<AppUser> DoSort(IEnumerable<AppUser> users, AppUserSortState sortOrder)
         {
             switch (sortOrder)
             {
