@@ -1,5 +1,6 @@
 ﻿using Application.AppUsers.Enums;
 using Application.Common.Mappings;
+using Application.Roles.Enums;
 using AutoMapper;
 using System.ComponentModel;
 using System.ComponentModel.DataAnnotations;
@@ -13,9 +14,8 @@ namespace Application.AppUsers.Queries.GetUserList
         public string? DisplayName { get; set; }
         public int? Age { get; set; }
         public string? Email { get; set; }
-        public string? Role { get; set; }
+        public UserRoles? Role { get; set; }
         [DefaultValue(1)]
-        [Range(1, double.MaxValue)]
         public int Page { get; set; } = 1;
 
         public void Mapping(Profile profile)

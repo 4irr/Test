@@ -1,4 +1,5 @@
 ﻿using Application.Common.Exceptions;
+using FluentValidation;
 using System.Net;
 using System.Text.Json;
 
@@ -29,6 +30,10 @@ namespace API.Middleware
             var result = string.Empty;
             switch (exception)
             {
+                case ValidationException validationException:
+                    code = HttpStatusCode.BadRequest;
+                    result = JsonSerializer.Serialize(validationException.Errors);
+                    break;
                 case NotFoundException:
                     code = HttpStatusCode.NotFound;
                     break;
