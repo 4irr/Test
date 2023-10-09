@@ -6,16 +6,16 @@ namespace Persistence
     public class DataSeed
     {
         public static async Task SeedDataAsync(ApplicationContext context, UserManager<AppUser> userManager, 
-            RoleManager<IdentityRole> roleManager)
+            RoleManager<AppRole> roleManager)
         {
             if (!roleManager.Roles.Any())
             {
-                var roles = new List<IdentityRole>
+                var roles = new List<AppRole>
                 {
-                    new IdentityRole { Name = "User" },
-                    new IdentityRole { Name = "Admin" },
-                    new IdentityRole { Name = "Support" },
-                    new IdentityRole { Name = "SuperAdmin" }
+                    new AppRole { Name = "User" },
+                    new AppRole { Name = "Admin" },
+                    new AppRole { Name = "Support" },
+                    new AppRole { Name = "SuperAdmin" }
                 };
 
                 foreach(var role in roles)

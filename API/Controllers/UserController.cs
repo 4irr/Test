@@ -1,4 +1,7 @@
 ﻿using Application.AppUsers.Commands.AddRoleToUser;
+using Application.AppUsers.Commands.CreateUser;
+using Application.AppUsers.Commands.DeleteUser;
+using Application.AppUsers.Commands.UpdateUser;
 using Application.AppUsers.Queries.GetUserDetails;
 using Application.AppUsers.Queries.GetUserList;
 using Application.AppUsers.Queries.Login;
@@ -27,7 +30,7 @@ namespace API.Controllers
         /// </param>
         /// <returns>Returns authenticated user with access token</returns>
         /// <response code="200">Success</response>
-        /// <response code="404">If user not found</response>
+        /// <response code="404">If login or password wrong</response>
         [HttpPost("login")]
         [ProducesResponseType(StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status404NotFound)]
@@ -91,20 +94,95 @@ namespace API.Controllers
         /// <param name="id">User id</param>
         /// <param name="roles">List of roles to add (valid roles: Admin, User, SuperAdmin, Support)</param>
         /// <returns>Returns NoContent</returns>
-        /// <response code="200">Success</response>
+        /// <response code="204">Success</response>
         /// <response code="404">If user not found</response>
         /// <response code="401">If user is unauthorized</response>
-        [ProducesResponseType(StatusCodes.Status200OK)]
-        [ProducesResponseType(StatusCodes.Status404NotFound)]
-        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         [HttpPut("users/{id}/add-role")]
         [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
         public async Task<ActionResult> AddRoleToUser(Guid id, [FromBody] List<UserRoles> roles)
         {
             var command = new AddRoleToUserCommand
             {
                 Id = id.ToString(),
                 Roles = roles
+            };
+            await Mediator.Send(command);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Creates a new user
+        /// </summary>
+        /// <remarks>
+        /// Sample reques:
+        /// POST /users/create
+        /// </remarks>
+        /// <param name="dto">User info</param>
+        /// <returns>User id</returns>
+        /// <response code="200">Success</response>
+        /// <response code="401">If user is unauthorized</response>
+        [HttpPost("users/create")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult> Create(CreateUserDto dto)
+        {
+            var command = _mapper.Map<CreateUserCommand>(dto);
+            string id = await Mediator.Send(command);
+            return Ok(id);
+        }
+
+        /// <summary>
+        /// Updates user by id
+        /// </summary>
+        /// <remarks>
+        /// Sample reques:
+        /// PUT /users/{id}/update
+        /// </remarks>
+        /// <param name="id">User id</param>
+        /// <param name="dto">User info</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">Success</response>
+        /// <response code="404">If user not found</response>
+        /// <response code="401">If user is unauthorized</response>
+        [HttpPut("/users/{id}/update")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult> Update(Guid id, UpdateUserDto dto)
+        {
+            var command = _mapper.Map<UpdateUserCommand>(dto);
+            command.Id = id.ToString();
+            await Mediator.Send(command);
+            return NoContent();
+        }
+
+        /// <summary>
+        /// Removes user by id
+        /// </summary>
+        /// <remarks>
+        /// Sample reques:
+        /// DELETE /users/{id}/remove
+        /// </remarks>
+        /// <param name="id">User id</param>
+        /// <returns>Returns NoContent</returns>
+        /// <response code="204">Success</response>
+        /// <response code="404">If user not found</response>
+        /// <response code="401">If user is unauthorized</response>
+        [HttpDelete("/users/{id}/remove")]
+        [Authorize]
+        [ProducesResponseType(StatusCodes.Status204NoContent)]
+        [ProducesResponseType(StatusCodes.Status404NotFound)]
+        [ProducesResponseType(StatusCodes.Status401Unauthorized)]
+        public async Task<ActionResult> Delete(Guid id)
+        {
+            var command = new DeleteUserCommand
+            {
+                Id = id.ToString(),
             };
             await Mediator.Send(command);
             return NoContent();

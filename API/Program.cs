@@ -12,8 +12,20 @@ using Application.Common.Mappings;
 using System.Reflection;
 using Application.Interfaces;
 using System.Text.Json.Serialization;
+using Serilog;
+using Serilog.Events;
+using Serilog.Sinks.SystemConsole.Themes;
 
 var builder = WebApplication.CreateBuilder(args);
+
+builder.Host.UseSerilog((context, configuration) =>
+{
+    configuration
+        .MinimumLevel.Override("Microsoft", LogEventLevel.Information)
+        .WriteTo.File("WebAPILog-.txt", rollingInterval: RollingInterval.Day)
+        .WriteTo.Console();
+});
+
 
 builder.Services.AddAutoMapper(config =>
 {
@@ -55,7 +67,7 @@ using (var scope = app.Services.CreateScope())
     {
         var context = services.GetRequiredService<ApplicationContext>();
         var userManager = services.GetRequiredService<UserManager<AppUser>>();
-        var roleManager = services.GetRequiredService<RoleManager<IdentityRole>>();
+        var roleManager = services.GetRequiredService<RoleManager<AppRole>>();
         context.Database.Migrate();
         DataSeed.SeedDataAsync(context, userManager, roleManager).Wait();
     }

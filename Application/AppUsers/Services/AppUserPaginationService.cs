@@ -13,7 +13,7 @@ namespace Application.AppUsers.Services
         public static IEnumerable<AppUser> DoPagination(IEnumerable<AppUser> users, int page)
         {
             // размер страницы по умолчанию
-            int pageSize = 1;
+            int pageSize = 2;
 
             var count = users.Count();
             var items = users.Skip((page - 1) * pageSize).Take(pageSize);

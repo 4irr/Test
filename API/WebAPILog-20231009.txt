@@ -1,0 +1,205 @@
+2023-10-09 14:06:58.797 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:06:58.855 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:06:58.858 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:06:58.859 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:06:58.874 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-09 14:06:58.889 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-10-09 14:06:59.116 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:06:59.128 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:06:59.166 +03:00 [INF] User profile is available. Using 'C:\Users\Влад\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 14:06:59.393 +03:00 [INF] Now listening on: https://localhost:7101
+2023-10-09 14:06:59.394 +03:00 [INF] Now listening on: http://localhost:5248
+2023-10-09 14:06:59.398 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 14:06:59.399 +03:00 [INF] Hosting environment: Development
+2023-10-09 14:06:59.400 +03:00 [INF] Content root path: D:\ASP\TestTask\API
+2023-10-09 14:07:00.061 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/index.html - -
+2023-10-09 14:07:00.360 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/index.html - - - 200 - text/html;charset=utf-8 301.5264ms
+2023-10-09 14:07:00.405 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 14:07:00.411 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 5.9248ms
+2023-10-09 14:07:00.426 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - -
+2023-10-09 14:07:00.473 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 46.8608ms
+2023-10-09 14:07:00.594 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - -
+2023-10-09 14:07:00.757 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - - - 200 - application/json;charset=utf-8 163.5602ms
+2023-10-09 14:07:17.067 +03:00 [INF] Executed DbCommand (15ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:07:17.115 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:07:17.118 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:07:17.119 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:07:17.131 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-09 14:07:17.141 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-10-09 14:07:17.286 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:07:17.291 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:07:17.318 +03:00 [INF] User profile is available. Using 'C:\Users\Влад\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 14:07:17.455 +03:00 [INF] Now listening on: https://localhost:7101
+2023-10-09 14:07:17.455 +03:00 [INF] Now listening on: http://localhost:5248
+2023-10-09 14:07:17.457 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 14:07:17.457 +03:00 [INF] Hosting environment: Development
+2023-10-09 14:07:17.458 +03:00 [INF] Content root path: D:\ASP\TestTask\API
+2023-10-09 14:07:18.148 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/index.html - -
+2023-10-09 14:07:18.518 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/index.html - - - 200 - text/html;charset=utf-8 372.8052ms
+2023-10-09 14:07:18.556 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 14:07:18.563 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 6.4008ms
+2023-10-09 14:07:18.583 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - -
+2023-10-09 14:07:18.641 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 57.7339ms
+2023-10-09 14:07:18.761 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - -
+2023-10-09 14:07:19.007 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - - - 200 - application/json;charset=utf-8 245.7578ms
+2023-10-09 14:07:36.312 +03:00 [INF] Executed DbCommand (17ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:07:36.388 +03:00 [INF] Executed DbCommand (13ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:07:36.392 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:07:36.393 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:07:36.413 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-09 14:07:36.429 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-10-09 14:07:36.589 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:07:36.594 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:07:36.667 +03:00 [INF] User profile is available. Using 'C:\Users\Влад\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 14:07:36.800 +03:00 [INF] Now listening on: https://localhost:7101
+2023-10-09 14:07:36.800 +03:00 [INF] Now listening on: http://localhost:5248
+2023-10-09 14:07:36.802 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 14:07:36.803 +03:00 [INF] Hosting environment: Development
+2023-10-09 14:07:36.803 +03:00 [INF] Content root path: D:\ASP\TestTask\API
+2023-10-09 14:07:37.831 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/index.html - -
+2023-10-09 14:07:38.172 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/index.html - - - 200 - text/html;charset=utf-8 343.7619ms
+2023-10-09 14:07:38.200 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 14:07:38.206 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 5.6077ms
+2023-10-09 14:07:38.238 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - -
+2023-10-09 14:07:38.293 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 54.4389ms
+2023-10-09 14:07:38.423 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - -
+2023-10-09 14:07:38.690 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - - - 200 - application/json;charset=utf-8 266.9016ms
+2023-10-09 14:07:55.802 +03:00 [INF] Executed DbCommand (19ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:07:55.876 +03:00 [INF] Executed DbCommand (21ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:07:55.880 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:07:55.882 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:07:55.907 +03:00 [INF] Executed DbCommand (4ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-09 14:07:55.923 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-10-09 14:07:56.091 +03:00 [INF] Executed DbCommand (2ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:07:56.100 +03:00 [INF] Executed DbCommand (3ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:07:56.127 +03:00 [INF] User profile is available. Using 'C:\Users\Влад\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 14:07:56.259 +03:00 [INF] Now listening on: https://localhost:7101
+2023-10-09 14:07:56.259 +03:00 [INF] Now listening on: http://localhost:5248
+2023-10-09 14:07:56.261 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 14:07:56.261 +03:00 [INF] Hosting environment: Development
+2023-10-09 14:07:56.261 +03:00 [INF] Content root path: D:\ASP\TestTask\API
+2023-10-09 14:07:57.245 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/index.html - -
+2023-10-09 14:07:57.612 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/index.html - - - 200 - text/html;charset=utf-8 368.2506ms
+2023-10-09 14:07:57.642 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 14:07:57.650 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 7.3327ms
+2023-10-09 14:07:57.687 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - -
+2023-10-09 14:07:57.747 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 59.9842ms
+2023-10-09 14:07:57.902 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - -
+2023-10-09 14:07:58.101 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - - - 200 - application/json;charset=utf-8 198.7574ms
+2023-10-09 14:08:33.065 +03:00 [INF] Executed DbCommand (14ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:08:33.116 +03:00 [INF] Executed DbCommand (10ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:08:33.121 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT 1
+2023-10-09 14:08:33.124 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT OBJECT_ID(N'[__EFMigrationsHistory]');
+2023-10-09 14:08:33.137 +03:00 [INF] Executed DbCommand (1ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT [MigrationId], [ProductVersion]
+FROM [__EFMigrationsHistory]
+ORDER BY [MigrationId];
+2023-10-09 14:08:33.150 +03:00 [INF] No migrations were applied. The database is already up to date.
+2023-10-09 14:08:33.297 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetRoles] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:08:33.305 +03:00 [INF] Executed DbCommand (0ms) [Parameters=[], CommandType='"Text"', CommandTimeout='30']
+SELECT CASE
+    WHEN EXISTS (
+        SELECT 1
+        FROM [AspNetUsers] AS [a]) THEN CAST(1 AS bit)
+    ELSE CAST(0 AS bit)
+END
+2023-10-09 14:08:33.332 +03:00 [INF] User profile is available. Using 'C:\Users\Влад\AppData\Local\ASP.NET\DataProtection-Keys' as key repository and Windows DPAPI to encrypt keys at rest.
+2023-10-09 14:08:33.467 +03:00 [INF] Now listening on: https://localhost:7101
+2023-10-09 14:08:33.469 +03:00 [INF] Now listening on: http://localhost:5248
+2023-10-09 14:08:33.472 +03:00 [INF] Application started. Press Ctrl+C to shut down.
+2023-10-09 14:08:33.473 +03:00 [INF] Hosting environment: Development
+2023-10-09 14:08:33.474 +03:00 [INF] Content root path: D:\ASP\TestTask\API
+2023-10-09 14:08:35.061 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/index.html - -
+2023-10-09 14:08:35.387 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/index.html - - - 200 - text/html;charset=utf-8 327.3309ms
+2023-10-09 14:08:35.422 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - -
+2023-10-09 14:08:35.437 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_framework/aspnetcore-browser-refresh.js - - - 200 11976 application/javascript;+charset=utf-8 15.3653ms
+2023-10-09 14:08:35.475 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/_vs/browserLink - -
+2023-10-09 14:08:35.543 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/_vs/browserLink - - - 200 - text/javascript;+charset=UTF-8 68.6909ms
+2023-10-09 14:08:35.687 +03:00 [INF] Request starting HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - -
+2023-10-09 14:08:35.978 +03:00 [INF] Request finished HTTP/2 GET https://localhost:7101/swagger/Test Task API/swagger.json - - - 200 - application/json;charset=utf-8 290.3838ms

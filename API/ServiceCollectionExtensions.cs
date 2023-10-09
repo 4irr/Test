@@ -19,6 +19,7 @@ namespace API
                 config.Password.RequireUppercase = false;
             })
                 .AddEntityFrameworkStores<ApplicationContext>()
+                .AddRoleManager<RoleManager<AppRole>>()
                 .AddSignInManager<SignInManager<AppUser>>();
 
             services.ConfigureApplicationCookie(options =>
